@@ -1,3 +1,137 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Global font size adjustments
+:root {
+    --font-size-base: 18px;
+    --font-size-h1: 2.2rem;
+    --font-size-h2: 1.8rem;
+    --font-size-h3: 1.5rem;
+  }
+  
+  // Apply the custom sizes
+  body {
+    font-size: var(--font-size-base);
+    
+  }
+  
+  h1 {
+    font-size: var(--font-size-h1) !important;
+  }
+  
+  h2 {
+    font-size: var(--font-size-h2) !important;
+  }
+  
+  h3 {
+    font-size: var(--font-size-h3) !important;
+  }
+
+  .graph h3 {
+    font-size: 1rem !important;
+    
+  }
+  
+  .content p,
+  .content li,
+  .content ul,
+  .content ol {
+    font-size: 1.1rem;
+  }
+
+  nav.breadcrumb-container {
+    padding: 4px 0 0 0  !important;
+  }
+.page-title a{
+    
+    padding: 0 0 100px 0  !important;
+}
+ 
+  /* Light mode color adjustments */
+:root,
+:root[saved-theme="light"] {
+  /* Define the light mode color */
+  --custom-navigation-color: #0a81f0;
+  
+  /* Apply to navigation elements in light mode */
+  .breadcrumb-container .breadcrumb-item,
+  .breadcrumb-container .breadcrumb-link,
+  .sidebar-container .folder-title,
+  .sidebar-container .item-title,
+  .sidebar-container .folder a,
+  .sidebar-container .item a,
+  .toc a,
+  .backlinks a,
+  .content a,
+  .breadcrumb-element a,
+  .page-title a,
+  .mymail{
+    color: var(--custom-navigation-color) !important;
+  }
+}
+
+/* Dark mode color adjustments */
+:root[saved-theme="dark"] {
+  /* Define the dark mode color */
+  --custom-navigation-color: #20d4dd;
+  
+  /* The selectors above will automatically use this color in dark mode */
+}
+
+/* Hover states for both modes */
+.breadcrumb-container .breadcrumb-link:hover,
+.sidebar-container a:hover,
+.toc a:hover,
+.backlinks a:hover,
+.content a:hover{
+  text-decoration: underline !important;
+  opacity: 0.9 !important;
+}
+
+/* Ensure Table of Contents is always visible */
+.toc {
+  display: block !important;
+  opacity: 1 !important;
+  max-height: none !important;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Remove toggle button from ToC */
+.toc-title button {
+  display: none !important;
+}
+/* Keep Table of Contents always visible and styled */
+.toc {
+    display: block !important; 
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    background-color: rgba(230, 230, 230, 0.3);
+    border-radius: 8px;
+    padding: 15px !important;
+    margin-bottom: 25px !important;
+  }
+  
+  /* Remove the toggle button/arrow */
+  .toc-title button {
+    display: none !important;
+  }
+  
+  /* Completely hide all backlinks sections using advanced selectors */
+  div[id="backlinks"],
+  div[id*="backlink"],
+  section[id*="backlink"],
+  div[class*="backlink"],
+  section[class*="backlink"],
+  div:has(h2:contains("Backlink")),
+  div:has(h3:contains("Backlink")),
+  section:has(h2:contains("Backlink")),
+  section:has(h3:contains("Backlink")) {
+    display: none !important;
+  }
+  .right {
+    margin-top: 8px;
+  }

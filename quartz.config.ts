@@ -26,7 +26,9 @@ const config: QuartzConfig = {
         header: "Schibsted Grotesk",
         body: "Source Sans Pro",
         code: "IBM Plex Mono",
+        
       },
+
       colors: {
         lightMode: {
           light: "#faf8f8",
@@ -69,7 +71,7 @@ const config: QuartzConfig = {
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.CrawlLinks({ markdownLinkResolution: "shortest", enableInHtmlEmbed: false }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
