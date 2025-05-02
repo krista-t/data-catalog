@@ -1,137 +1,291 @@
 @use "./base.scss";
+@use "sass:map";
 
-// Global font size adjustments
+/* ------------------------------ */
+/* VARIABLES & ROOT DECLARATIONS */
+/* ------------------------------ */
 :root {
-    --font-size-base: 18px;
-    --font-size-h1: 2.2rem;
-    --font-size-h2: 1.8rem;
-    --font-size-h3: 1.5rem;
-  }
+  /* Typography */
+  --font-size-base: 1.2rem;
+  --font-size-h1: 2.2rem;
+  --font-size-h2: 1.8rem;
+  --font-size-h3: 1.5rem;
   
-  // Apply the custom sizes
-  body {
-    font-size: var(--font-size-base);
-    
-  }
-  
-  h1 {
-    font-size: var(--font-size-h1) !important;
-  }
-  
-  h2 {
-    font-size: var(--font-size-h2) !important;
-  }
-  
-  h3 {
-    font-size: var(--font-size-h3) !important;
-  }
-
-  .graph h3 {
-    font-size: 1rem !important;
-    
-  }
-  
-  .content p,
-  .content li,
-  .content ul,
-  .content ol {
-    font-size: 1.1rem;
-  }
-
-  nav.breadcrumb-container {
-    padding: 4px 0 0 0  !important;
-  }
-.page-title a{
-    
-    padding: 0 0 100px 0  !important;
-}
- 
-  /* Light mode color adjustments */
-:root,
-:root[saved-theme="light"] {
-  /* Define the light mode color */
+  /* Colors - Light Theme */
   --custom-navigation-color: #0a81f0;
-  
-  /* Apply to navigation elements in light mode */
-  .breadcrumb-container .breadcrumb-item,
-  .breadcrumb-container .breadcrumb-link,
-  .sidebar-container .folder-title,
-  .sidebar-container .item-title,
-  .sidebar-container .folder a,
-  .sidebar-container .item a,
-  .toc a,
-  .backlinks a,
-  .content a,
-  .breadcrumb-element a,
-  .page-title a,
-  .mymail{
-    color: var(--custom-navigation-color) !important;
-  }
+  --background-opacity: rgba(233, 234, 234, 0.4);
 }
 
-/* Dark mode color adjustments */
+/* Dark mode variables */
 :root[saved-theme="dark"] {
-  /* Define the dark mode color */
   --custom-navigation-color: #20d4dd;
-  
-  /* The selectors above will automatically use this color in dark mode */
+  --background-opacity: rgba(60, 60, 60, 0.3);
 }
 
-/* Hover states for both modes */
+/* ------------------------------ */
+/* TYPOGRAPHY                     */
+/* ------------------------------ */
+body {
+  font-size: var(--font-size-base);
+}
+
+h1 {
+  font-size: var(--font-size-h1) !important;
+}
+
+h2 {
+  font-size: var(--font-size-h2) !important;
+}
+
+h3 {
+  font-size: var(--font-size-h3) !important;
+}
+
+.graph h3 {
+  font-size: 1rem !important;
+}
+
+.content p,
+.content li,
+.content ul,
+.content ol {
+  font-size: 1.2rem;
+}
+
+/* ------------------------------ */
+/* LAYOUT                         */
+/* ------------------------------ */
+.page {
+  width: 90% !important;
+  max-width: 90% !important;
+}
+
+.page > #quartz-body {
+  column-gap: 4rem !important;
+}
+
+.page > #quartz-body .sidebar.left {
+  grid-column-start: 1;
+  width: 100% !important;
+  max-width: 320px !important;
+}
+
+.page > #quartz-body .center {
+  grid-column-start: 2;
+  padding: 0 1rem;
+}
+
+.page > #quartz-body .sidebar.right {
+  grid-column-start: 3;
+  width: 100% !important;
+  max-width: 320px !important;
+}
+
+.right {
+  margin-top: 8px;
+}
+
+nav.breadcrumb-container {
+  padding: 4px 0 0 0 !important;
+}
+
+.page-title a {
+  padding: 0 0 100px 0 !important;
+}
+
+/* ------------------------------ */
+/* LINKS & NAVIGATION             */
+/* ------------------------------ */
+/* Universal link styling for navigation */
+.breadcrumb-container .breadcrumb-item,
+.breadcrumb-container .breadcrumb-link,
+.sidebar-container .folder-title,
+.sidebar-container .item-title,
+.sidebar-container .folder a,
+.sidebar-container .item a,
+.toc a,
+.content a,
+.breadcrumb-element a,
+.backlinks a,
+.page-title a,
+.mymail {
+  color: var(--custom-navigation-color) !important;
+}
+//make it of same color as inactive toc links
+a.external  {
+    color: var(--custom-navigation-color) !important;
+    
+}
+
+/* Opacity for TOC links */
+ul.toc-content > li > a {
+  opacity: 0.65 !important;
+}
+
+
+ul.toc-content.overflow > li > a.in-view {
+  opacity: 1 !important;
+}
+
+/* Opacity for Explorer links */
+.explorer-content ul li > a {
+  opacity: 0.65 !important;
+}
+
+.explorer-content ul li > a.active {
+  opacity: 1 !important;
+}
+
+/* Hover states for links */
 .breadcrumb-container .breadcrumb-link:hover,
 .sidebar-container a:hover,
 .toc a:hover,
 .backlinks a:hover,
-.content a:hover{
+.content a:hover {
   text-decoration: underline !important;
   opacity: 0.9 !important;
 }
 
-/* Ensure Table of Contents is always visible */
-.toc {
-  display: block !important;
-  opacity: 1 !important;
-  max-height: none !important;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.1);
+a.external {
+  cursor: pointer !important;
 }
 
-/* Remove toggle button from ToC */
+/* ------------------------------ */
+/* SEARCH COMPONENT               */
+/* ------------------------------ */
+.search > .search-button {
+  background-color: var(--background-opacity) !important;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+button.search-button {
+  background-color: transparent;
+}
+
+div.search:hover,
+div.search:focus-within {
+  background-color: rgba(230, 230, 230, 0.5);
+}
+
+:root[saved-theme="dark"] div.search:hover,
+:root[saved-theme="dark"] div.search:focus-within {
+  background-color: rgba(60, 60, 60, 0.5);
+}
+
+/* ------------------------------ */
+/* TABLE OF CONTENTS              */
+/* ------------------------------ */
+.toc {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  background-color: var(--background-opacity);
+  border-radius: 8px;
+  padding: 15px !important;
+  margin-bottom: 25px !important;
+}
+
 .toc-title button {
   display: none !important;
 }
-/* Keep Table of Contents always visible and styled */
-.toc {
-    display: block !important; 
-    visibility: visible !important;
-    opacity: 1 !important;
-    height: auto !important;
-    max-height: none !important;
-    background-color: rgba(230, 230, 230, 0.3);
-    border-radius: 8px;
-    padding: 15px !important;
-    margin-bottom: 25px !important;
+
+.toc li {
+  list-style-type: disc !important;
+  margin: 0 0 0 1.3rem !important;
+}
+
+.toc-content li {
+  color: var(--custom-navigation-color) !important;
+}
+
+/* ------------------------------ */
+/* REMOVE BACKLINKS               */
+/* ------------------------------ */
+div[id="backlinks"],
+div[id*="backlink"],
+section[id*="backlink"],
+div[class*="backlink"],
+section[class*="backlink"],
+div:has(h2:contains("Backlink")),
+div:has(h3:contains("Backlink")),
+section:has(h2:contains("Backlink")),
+section:has(h3:contains("Backlink")) {
+  display: none !important;
+}
+
+/* ------------------------------ */
+/* TABLE STYLING                  */
+/* ------------------------------ */
+.table-container {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container th,
+.table-container td {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--lightgray);
+  word-wrap: break-word;
+  min-width: 120px; /* Make cells wider */
+}
+
+.table-container th {
+  font-weight: 600;
+  text-align: left;
+  background-color: var(--background-opacity);
+  color: var(--secondary-text);
+}
+
+.table-container tr:nth-child(even) {
+  background-color: var(--lightgray-dim);
+}
+
+.table-container tr:nth-child(odd) {
+  background-color: var(--light);
+}
+
+/* Dark mode table styling */
+:root[saved-theme="dark"] .table-container th {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+}
+
+:root[saved-theme="dark"] .table-container tr:nth-child(even) {
+  background-color: var(--darkgray);
+}
+
+:root[saved-theme="dark"] .table-container tr:nth-child(odd) {
+  background-color: var(--dark);
+}
+
+:root[saved-theme="dark"] .table-container td,
+:root[saved-theme="dark"] .table-container th {
+  border-color: var(--darkgray);
+}
+
+/* ------------------------------ */
+/* RESPONSIVE DESIGN              */
+/* ------------------------------ */
+@media (max-width: 800px) {
+  .table-container table,
+  .table-container td,
+  .table-container th {
+    font-size: 0.75rem;
   }
   
-  /* Remove the toggle button/arrow */
-  .toc-title button {
-    display: none !important;
+  .table-container td,
+  .table-container th {
+    padding: 0.4rem 0.5rem;
+    min-width: 100px;
   }
-  
-  /* Completely hide all backlinks sections using advanced selectors */
-  div[id="backlinks"],
-  div[id*="backlink"],
-  section[id*="backlink"],
-  div[class*="backlink"],
-  section[class*="backlink"],
-  div:has(h2:contains("Backlink")),
-  div:has(h3:contains("Backlink")),
-  section:has(h2:contains("Backlink")),
-  section:has(h3:contains("Backlink")) {
-    display: none !important;
-  }
-  .right {
-    margin-top: 8px;
-  }
+}

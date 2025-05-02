@@ -1,11 +1,6 @@
-import { QuartzConfig } from "./quartz/cfg"
-import * as Plugin from "./quartz/plugins"
+import { QuartzConfig } from "./quartz/cfg";
+import * as Plugin from "./quartz/plugins";
 
-/**
- * Quartz 4 Configuration
- *
- * See https://quartz.jzhao.xyz/configuration for more information.
- */
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "Quartz 4",
@@ -16,7 +11,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "http://localhost:8080",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -26,9 +21,7 @@ const config: QuartzConfig = {
         header: "Schibsted Grotesk",
         body: "Source Sans Pro",
         code: "IBM Plex Mono",
-        
       },
-
       colors: {
         lightMode: {
           light: "#faf8f8",
@@ -68,14 +61,33 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
+      Plugin.ObsidianFlavoredMarkdown({
+        comments: true,
+        highlight: true,
+        wikilinks: true,
+        callouts: true,
+        mermaid: true,
+        parseTags: true,
+        parseArrows: true,
+        parseBlockReferences: true,
+        enableInHtmlEmbed: true,
+        enableYouTubeEmbed: true,
+        enableVideoEmbed: true,
+        enableCheckbox: true,
+      }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest", enableInHtmlEmbed: false }),
+      Plugin.CrawlLinks({
+        markdownLinkResolution: "relative",
+        enableInHtmlEmbed: true,
+        prettyLinks: true, // Add this for nicer link parsing
+      }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [
+      Plugin.RemoveDrafts(),
+    ],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
@@ -89,11 +101,10 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.Favicon(),
-      Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
+      Plugin.NotFoundPage(404),
       Plugin.CustomOgImages(),
     ],
   },
-}
+};
 
-export default config
+export default config;

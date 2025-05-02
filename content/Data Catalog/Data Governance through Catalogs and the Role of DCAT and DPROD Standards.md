@@ -1,3 +1,4 @@
+# Data Governance through Catalogs and the Role of DCAT and DPROD Standards
 
 As organizations increasingly recognize data as a strategic asset, implementing effective data governance becomes critical. A data catalog serves as a foundational component in this governance framework, providing a centralized inventory of **metadata about data assets** that enables discovery, understanding, and proper use. This document explores how data governance can be effectively implemented through catalogs, with particular focus on how the DCAT and DPROD standards support these efforts.
 
@@ -28,7 +29,7 @@ Metadata is "data about data" - structured information that describes, explains,
 - **Operational metadata**: Update frequencies, quality metrics, usage statistics
 - **Business metadata**: Business definitions, context, purposes, and domains
 
-**Data catalogs primarily store and manage metadata, not the actual data itself.** The data remains in its source systems (databases, data lakes, etc.), while the catalog maintains the metadata that helps users discover, understand, and properly use that data. This aligns with the definition provided in the [[Data Catalog Guide#What is a Data Catalog|What is a Data Catalog]] section.
+**Data catalogs primarily store and manage metadata, not the actual data itself.** The data remains in its source systems (databases, data lakes, etc.), while the catalog maintains the metadata that helps users discover, understand, and properly use that data. This aligns with the definition provided in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ## Understanding Data Governance
 
@@ -54,7 +55,7 @@ A data catalog is primarily a metadata management system—it doesn't store the 
 5. **Policy Documentation**: Metadata about access controls and usage policies
 6. **Usage Analytics**: Metadata about how data is being used across the organization
 
-By centralizing metadata management and embedding governance policies into the catalog, organizations can operationalize governance in day-to-day data activities rather than treating it as a separate compliance exercise. This addresses many of the challenges outlined in [[Data Catalog Guide#What Problems Do Data Catalogs Solve|What Problems Do Data Catalog Solve]].
+By centralizing metadata management and embedding governance policies into the catalog, organizations can operationalize governance in day-to-day data activities rather than treating it as a separate compliance exercise. This addresses many of the challenges outlined in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ## Standards for Data Catalog Metadata
 
@@ -64,7 +65,7 @@ By centralizing metadata management and embedding governance policies into the c
 
 The [Data Catalog Vocabulary (DCAT)](https://www.w3.org/TR/vocab-dcat-2/) is a W3C recommendation designed to facilitate interoperability between data catalogs published on the web. DCAT provides a standardized metadata model for describing datasets and data services in catalogs, making them discoverable across organizational boundaries.
 
-The  [SeSaMe](https://www.youtube.com/playlist?list=PL2Sn3nIoC24YCQO53xFhMtBSQJWdHpdek)i s an example of a domain-specific implementation that uses DCAT standards for representing catalog metadata and [SKOS (Simple Knowledge Organization System)](https://www.w3.org/2004/02/skos/) for building structured glossaries. This approach enables the catalog to maintain industry-specific terminology while remaining interoperable with other systems.
+The [SeSaMe](https://www.youtube.com/playlist?list=PL2Sn3nIoC24YCQO53xFhMtBSQJWdHpdek) is an example of a domain-specific implementation that uses DCAT standards for representing catalog metadata and [SKOS (Simple Knowledge Organization System)](https://www.w3.org/2004/02/skos/) for building structured glossaries. This approach enables the catalog to maintain industry-specific terminology while remaining interoperable with other systems.
 
 #### Key Components of DCAT Metadata
 
@@ -87,7 +88,7 @@ DCAT provides standardized ways to capture metadata that:
 4. **Supports Compliance**: Metadata including rights statements and license information
 5. **Enables Federation**: Standardized metadata allowing catalogs from different departments or organizations to interoperate
 
-By providing a common vocabulary for metadata, DCAT ensures consistent documentation across data assets, which is essential for effective governance. This is referenced in the [[Data Catalog Guide#Strategic Roadmap for Data Catalog Selection|Strategic Roadmap for Data Catalog Selection]] under the requirements section.
+By providing a common vocabulary for metadata, DCAT ensures consistent documentation across data assets, which is essential for effective governance. This is referenced in the [Strategic Roadmap for Data Catalog Implementation](../Data%20Catalog/Strategic%20Roadmap%20for%20Data%20Catalog%20Implementation).
 
 ### The DPROD Standard
 
@@ -119,7 +120,7 @@ DPROD enhances governance capabilities by standardizing metadata that:
 5. **Supports Decentralization**: Allows domain-specific metadata while maintaining standards
 6. **Facilitates Discoverability**: Makes metadata about products easily findable and usable
 
-DPROD provides the foundation for treating data as a product rather than a byproduct, shifting the governance model from centralized control to federated responsibility by standardizing product metadata. This approach aligns with the [[Data Catalog Guide#Domain-Specific vs General-Purpose Catalogs|Domain-Specific Catalogs]] approach discussed earlier.
+DPROD provides the foundation for treating data as a product rather than a byproduct, shifting the governance model from centralized control to federated responsibility by standardizing product metadata. This approach aligns with the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ## Implementing Governance Through Standards-Based Catalogs
 
@@ -127,7 +128,7 @@ DPROD provides the foundation for treating data as a product rather than a bypro
 
 A comprehensive catalog powered by [DCAT](https://www.w3.org/TR/vocab-dcat-2/) and [DPROD](https://dprod.io/) standards can effectively implement governance across five key pillars. First, the catalog enables **data discovery and understanding** through consistent descriptive metadata, shared vocabularies, and rich contextual documentation that helps users grasp the purpose and meaning of data assets. Second, it supports **quality management** by tracking indicators, validation rules, and freshness information, ensuring users can trust the data they discover. The third pillar, **security and privacy**, is addressed through sensitivity classifications and access control metadata that document proper handling requirements. Fourth, **lifecycle management** becomes more systematic with status tracking and version control metadata that guides the evolution of data products. Finally, **compliance and risk management** is strengthened through regulatory mapping metadata and retention policies that ensure data is managed according to applicable requirements.
 
-These pillars connect directly to the benefits outlined in the [[Data Catalog Guide#Why Use a Data Catalog|Why Use a Data Catalog]] section.
+These pillars connect directly to the benefits outlined in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 #### Classification Systems and Data Mesh Support
 
@@ -135,7 +136,7 @@ Effective catalog-based governance requires standardized classification systems 
 
 These standards are particularly valuable in [Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html) architectures, where DCAT and DPROD enable domain ownership through clear accountability metadata. They support self-service capabilities with standardized interfaces, enable federated governance across decentralized teams, and promote product thinking by treating data as managed products with documented interfaces and service levels.
 
-This approach aligns well with the [[Data Catalog Guide#Domain-Specific vs General-Purpose Catalogs|domain-specific catalog]] approach, where specialized teams can maintain their domain-specific metadata while adhering to enterprise-wide standards.
+This approach aligns well with the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ### Implementation Approach
 
@@ -145,7 +146,7 @@ Governance policies should be embedded as metadata within the catalog, linked to
 
 The effectiveness of these efforts can be measured through metadata completeness and quality metrics, catalog usage statistics, policy compliance rates, and increased data reuse across the organization.
 
-This implementation process aligns with the phases described in the [[Data Catalog Guide#Strategic Roadmap for Data Catalog Selection|Strategic Roadmap]], especially during the "Implementation & Adoption" phase.
+This implementation process aligns with the phases described in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ## Conclusion
 
@@ -153,7 +154,7 @@ Organizations that implement governance through standards-based catalogs gain se
 
 To conclude, DCAT and DPROD metadata standards serve as the operational backbone for effective data governance, providing structured metadata, clear ownership documentation, and consistent data descriptions. Together, they create a powerful platform that balances governance control with domain flexibility, enabling organizations to treat data as a strategic asset while empowering teams to innovate and deliver value.
 
-These outcomes directly address the challenges and expected benefits outlined in [[Data Catalog Guide#Expected Outcomes|Expected Outcomes|]].
+These outcomes directly address the challenges and expected benefits outlined in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 ## Appendix: Glossary of Terms
 
