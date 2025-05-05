@@ -1,0 +1,31 @@
+# Appendix: Glossary of Terms
+
+**Catalog**: A collection of metadata records about datasets, data services, or data products.
+
+**Data**: The actual information content stored in systems and used for business operations and decision-making.
+
+**[DCAT (Data Catalog Vocabulary)](https://www.w3.org/TR/vocab-dcat-2/)**: A W3C standard for metadata used to describe datasets and data services in catalogs.
+
+**Dataset**: A collection of actual data, published or curated by a single agent.
+
+**Dataset Metadata**: Standardized information that describes a dataset without containing the actual dataset.
+
+**Data Governance**: The framework of policies, processes, and standards for managing data as an asset.
+
+**[Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html)**: An architectural approach that shifts from centralized data platforms to a distributed, domain-oriented ownership model.
+
+**Data Product**: A rational, managed, and governed collection of data, with purpose, value and ownership, meeting consumer needs over a planned life-cycle.
+
+**Distribution**: A specific representation of a dataset in a particular format.
+
+**[DPROD (Data Product Ontology)](https://dprod.io/)**: A specification that extends DCAT metadata to describe data products.
+
+**Input Port**: A service exposed by a data product to collect its source data, described by metadata in the catalog.
+
+**Metadata**: Structured information that describes, explains, locates, or otherwise makes it easier to retrieve, use, or manage data. This is what data catalogs primarily store and manage.
+
+**Output Port**: A service exposed by a data product to share generated data, described by metadata in the catalog.
+
+**[SKOS (Simple Knowledge Organization System)](https://www.w3.org/2004/02/skos/)**: A W3C recommendation designed for representing glossaries, taxonomies, and thesauri; often used alongside DCAT for structured terminology.
+
+**[W3C](https://www.w3.org/)**: The World Wide Web Consortium, an international community that develops open standards for the web.

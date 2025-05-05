@@ -15,9 +15,10 @@ export default ((opts?: Options) => {
       <footer class={`${displayClass ?? ""}`}>
   <p>
     {i18n(cfg.locale).components.footer.createdWith}{" "}
-    <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year} by Kristina Tomicic <a class="mymail" href="mailto:info@krista-t.com">info@krista-t.com</a>
+    <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year} | Content © 2024 by Kristina Tomicic <a class="mymail" href="mailto:info@krista-t.com">info@krista-t.com</a>
   </p>
-  
+  <p>Licensed under CC BY 4.0 | When sharing, please provide attribution to Kristina Tomicic</p>
+  <br />
   <ul>
     {Object.entries(links).map(([text, link]) => (
       <li>

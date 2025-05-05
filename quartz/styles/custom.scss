@@ -56,30 +56,38 @@ h3 {
 /* LAYOUT                         */
 /* ------------------------------ */
 .page {
-  width: 90% !important;
-  max-width: 90% !important;
-}
-
-.page > #quartz-body {
-  column-gap: 4rem !important;
-}
-
-.page > #quartz-body .sidebar.left {
-  grid-column-start: 1;
-  width: 100% !important;
-  max-width: 320px !important;
-}
-
-.page > #quartz-body .center {
-  grid-column-start: 2;
-  padding: 0 1rem;
-}
-
-.page > #quartz-body .sidebar.right {
-  grid-column-start: 3;
-  width: 100% !important;
-  max-width: 320px !important;
-}
+    width: 100% !important;
+    max-width: 1600px !important; /* Slightly reduced max-width */
+    padding-left: 2rem !important;
+    padding-right: 2rem !important; /* Explicitly set both left and right padding */
+    margin-left: auto !important;
+    margin-right: auto !important; /* Explicitly set both left and right margin to auto */
+    box-sizing: border-box !important;
+  }
+  
+  .page > #quartz-body {
+    column-gap: 2rem !important;
+    width: 100% !important; /* Ensure the body takes full width */
+  }
+  
+  .page > #quartz-body .sidebar.left {
+    grid-column-start: 1;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+  
+  .page > #quartz-body .center {
+    grid-column-start: 2;
+    padding: 0 !important; /* Remove padding from center content */
+    min-width: 0;
+    width: 100% !important;
+  }
+  
+  .page > #quartz-body .sidebar.right {
+    grid-column-start: 3;
+    width: 100% !important;
+    max-width: 320px !important;
+  }
 
 .right {
   margin-top: 8px;
@@ -114,8 +122,20 @@ nav.breadcrumb-container {
 //make it of same color as inactive toc links
 a.external  {
     color: var(--custom-navigation-color) !important;
-    
+
 }
+/* Style explorer content as a numbered list with matching colors */
+ul.content {
+    list-style-type: decimal !important; /* Use decimal numbering */
+    padding-left: 2rem !important; /* Add padding for the numbers */
+  }
+  
+  /* Style the list items themselves to have the navigation color */
+  ul.content > li {
+    display: list-item !important;
+    list-style-position: outside !important;
+    color: var(--custom-navigation-color) !important; /* This will color the numbers */
+  }
 
 /* Opacity for TOC links */
 ul.toc-content > li > a {
@@ -276,16 +296,62 @@ section:has(h3:contains("Backlink")) {
 /* ------------------------------ */
 /* RESPONSIVE DESIGN              */
 /* ------------------------------ */
-@media (max-width: 800px) {
-  .table-container table,
-  .table-container td,
-  .table-container th {
-    font-size: 0.75rem;
+@media (max-width: 1200px) {
+    .page {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+    
+    .page > #quartz-body {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    .page > #quartz-body .sidebar.left,
+    .page > #quartz-body .sidebar.right {
+      width: 100% !important;
+      max-width: 100% !important;
+      order: 2;
+      padding: 0 !important; /* Remove padding from sidebars on small screens */
+    }
+    
+    .page > #quartz-body .center {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0;
+      order: 1;
+      padding: 0 !important; /* Ensure no padding on the content */
+    }
   }
   
-  .table-container td,
-  .table-container th {
-    padding: 0.4rem 0.5rem;
-    min-width: 100px;
+//   @media (max-width: 800px) {
+//     .page {
+//       padding-left: 1rem !important;
+//       padding-right: 1rem !important;
+//     }
+//   }
+  
+  @media (max-width: 800px) {
+    .page {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    
+    .table-container table,
+    .table-container td,
+    .table-container th {
+      font-size: 0.75rem;
+    }
+    
+    .table-container td,
+    .table-container th {
+      padding: 0.4rem 0.5rem;
+      min-width: 100px;
+    }
   }
-}
+
+
+
+  
+
+  

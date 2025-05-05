@@ -71,3 +71,29 @@
     }
   }
 }
+
+
+/* Increase node size in graph */
+.graph-view .node circle,
+.graph .node circle,
+svg.global-graph circle.node,
+svg.graph circle.node {
+  r: 8 !important;  /* Increase this value for larger nodes */
+}
+
+/* Make edges thicker */
+.graph-view .edge,
+.graph .link,
+svg.global-graph line.link,
+svg.graph line.link {
+  stroke-width: 2px !important;  /* Increase this value for thicker edges */
+}
+
+/* Make labels bigger */
+.graph-view text,
+.graph text,
+svg.global-graph text,
+svg.graph text {
+  font-size: 14px !important;  /* Increase this value for larger labels */
+  font-weight: bold;
+}

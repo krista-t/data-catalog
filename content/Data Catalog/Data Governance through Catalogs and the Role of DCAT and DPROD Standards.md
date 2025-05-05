@@ -8,7 +8,7 @@ Before exploring data catalogs and governance standards, it's important to clari
 
 ### Data
 
-Data refers to the actual information content that organizations collect, process, and utilize for business operations and decision-making. This includes:
+Data refers to the actual information content that organizations collect, process, and utilize for business operations and decision-making. To name a few:
 
 - Customer records
 - Transaction details
@@ -63,7 +63,7 @@ By centralizing metadata management and embedding governance policies into the c
 
 #### What is DCAT?
 
-The [Data Catalog Vocabulary (DCAT)](https://www.w3.org/TR/vocab-dcat-2/) is a W3C recommendation designed to facilitate interoperability between data catalogs published on the web. DCAT provides a standardized metadata model for describing datasets and data services in catalogs, making them discoverable across organizational boundaries.
+The [Data Catalog Vocabulary (DCAT)](https://www.w3.org/TR/vocab-dcat-3/) is a W3C recommendation designed to facilitate interoperability between data catalogs published on the web. DCAT provides a standardized metadata model for describing datasets and data services in catalogs, making them discoverable across organizational boundaries.
 
 The [SeSaMe](https://www.youtube.com/playlist?list=PL2Sn3nIoC24YCQO53xFhMtBSQJWdHpdek) is an example of a domain-specific implementation that uses DCAT standards for representing catalog metadata and [SKOS (Simple Knowledge Organization System)](https://www.w3.org/2004/02/skos/) for building structured glossaries. This approach enables the catalog to maintain industry-specific terminology while remaining interoperable with other systems.
 
@@ -94,7 +94,7 @@ By providing a common vocabulary for metadata, DCAT ensures consistent documenta
 
 #### What is DPROD?
 
-The [Data Product (DPROD) specification](https://dprod.io/) is a profile of DCAT specifically designed to describe data products in domain-oriented architectures like [Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html). According to the DPROD specification, a data product is defined as a "rational, managed, and governed collection of data, with purpose, value and ownership, meeting consumer needs over a planned life-cycle."
+The [Data Product (DPROD) specification](https://www.omg.org/spec/DPROD/1.0/Beta1/About-DPROD) is a profile of DCAT specifically designed to describe data products in domain-oriented architectures like [Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html). According to the DPROD specification, a data product is defined as a "rational, managed, and governed collection of data, with purpose, value and ownership, meeting consumer needs over a planned life-cycle."
 
 DPROD extends the metadata model of DCAT to support product-oriented approaches to data management.
 
@@ -120,21 +120,21 @@ DPROD enhances governance capabilities by standardizing metadata that:
 5. **Supports Decentralization**: Allows domain-specific metadata while maintaining standards
 6. **Facilitates Discoverability**: Makes metadata about products easily findable and usable
 
-DPROD provides the foundation for treating data as a product rather than a byproduct, shifting the governance model from centralized control to federated responsibility by standardizing product metadata. This approach aligns with the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
+DPROD provides the foundation for treating data as a product rather than a byproduct, shifting the governance model from centralized control to federated responsibility by standardizing product metadata. 
 
 ## Implementing Governance Through Standards-Based Catalogs
 
 #### Core Governance Pillars
 
-A comprehensive catalog powered by [DCAT](https://www.w3.org/TR/vocab-dcat-2/) and [DPROD](https://dprod.io/) standards can effectively implement governance across five key pillars. First, the catalog enables **data discovery and understanding** through consistent descriptive metadata, shared vocabularies, and rich contextual documentation that helps users grasp the purpose and meaning of data assets. Second, it supports **quality management** by tracking indicators, validation rules, and freshness information, ensuring users can trust the data they discover. The third pillar, **security and privacy**, is addressed through sensitivity classifications and access control metadata that document proper handling requirements. Fourth, **lifecycle management** becomes more systematic with status tracking and version control metadata that guides the evolution of data products. Finally, **compliance and risk management** is strengthened through regulatory mapping metadata and retention policies that ensure data is managed according to applicable requirements.
+A comprehensive catalog powered by [DCAT](https://www.w3.org/TR/vocab-dcat-3/) and [DPROD](https://www.omg.org/spec/DPROD/1.0/Beta1/About-DPROD) standards can effectively implement governance across five key pillars. First, the catalog enables **data discovery and understanding** through consistent descriptive metadata, shared vocabularies, and rich contextual documentation that helps users grasp the purpose and meaning of data assets. Second, it supports **quality management** by tracking indicators, validation rules, and freshness information, ensuring users can trust the data they discover. The third pillar, **security and privacy**, is addressed through sensitivity classifications and access control metadata that document proper handling requirements. Fourth, **lifecycle management** becomes more systematic with status tracking and version control metadata that guides the evolution of data products. Finally, **compliance and risk management** is strengthened through regulatory mapping metadata and retention policies that ensure data is managed according to applicable requirements.
 
 These pillars connect directly to the benefits outlined in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
 #### Classification Systems and Data Mesh Support
 
-Effective catalog-based governance requires standardized classification systems for aspects like confidentiality, integrity, availability, and retention. These classifications, when integrated with [DCAT](https://www.w3.org/TR/vocab-dcat-2/) and [DPROD](https://dprod.io/) models, create a cohesive governance framework without interfering with the actual data infrastructure.
+Effective catalog-based governance requires standardized classification systems for aspects like confidentiality, integrity, availability, and retention. These classifications, when integrated with [DCAT](https://www.w3.org/TR/vocab-dcat-3/) and [DPROD](https://www.omg.org/spec/DPROD/1.0/Beta1/About-DPROD) models, create a cohesive governance framework without interfering with the actual data infrastructure.
 
-These standards are particularly valuable in [Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html) architectures, where DCAT and DPROD enable domain ownership through clear accountability metadata. They support self-service capabilities with standardized interfaces, enable federated governance across decentralized teams, and promote product thinking by treating data as managed products with documented interfaces and service levels.
+These standards are particularly valuable in [Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html) architectures, where domain teams maintain ownership of their data products. The DCAT and DPROD specifications enable this ownership model by providing standardized ways to document accountability through metadata. This approach ensures clear responsibility for data quality, security, and compliance while allowing domains to maintain autonomy over their data assets.
 
 This approach aligns well with the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
@@ -156,34 +156,3 @@ To conclude, DCAT and DPROD metadata standards serve as the operational backbone
 
 These outcomes directly address the challenges and expected benefits outlined in the [Data Catalog Guide](../Data%20Catalog/Data%20Catalog%20Guide).
 
-## Appendix: Glossary of Terms
-
-**Catalog**: A collection of metadata records about datasets, data services, or data products.
-
-**Data**: The actual information content stored in systems and used for business operations and decision-making.
-
-**[DCAT (Data Catalog Vocabulary)](https://www.w3.org/TR/vocab-dcat-2/)**: A W3C standard for metadata used to describe datasets and data services in catalogs.
-
-**Dataset**: A collection of actual data, published or curated by a single agent.
-
-**Dataset Metadata**: Standardized information that describes a dataset without containing the actual dataset.
-
-**Data Governance**: The framework of policies, processes, and standards for managing data as an asset.
-
-**[Data Mesh](https://martinfowler.com/articles/data-mesh-principles.html)**: An architectural approach that shifts from centralized data platforms to a distributed, domain-oriented ownership model.
-
-**Data Product**: A rational, managed, and governed collection of data, with purpose, value and ownership, meeting consumer needs over a planned life-cycle.
-
-**Distribution**: A specific representation of a dataset in a particular format.
-
-**[DPROD (Data Product Ontology)](https://dprod.io/)**: A specification that extends DCAT metadata to describe data products.
-
-**Input Port**: A service exposed by a data product to collect its source data, described by metadata in the catalog.
-
-**Metadata**: Structured information that describes, explains, locates, or otherwise makes it easier to retrieve, use, or manage data. This is what data catalogs primarily store and manage.
-
-**Output Port**: A service exposed by a data product to share generated data, described by metadata in the catalog.
-
-**[SKOS (Simple Knowledge Organization System)](https://www.w3.org/2004/02/skos/)**: A W3C recommendation designed for representing glossaries, taxonomies, and thesauri; often used alongside DCAT for structured terminology.
-
-**[W3C](https://www.w3.org/)**: The World Wide Web Consortium, an international community that develops open standards for the web.
