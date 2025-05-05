@@ -10,7 +10,7 @@ interface Options {
 export default ((opts?: Options) => {
   const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
-    const links = opts?.links ?? []
+    // const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
   <p>
@@ -19,13 +19,13 @@ export default ((opts?: Options) => {
   </p>
   <p>Licensed under CC BY 4.0 | When sharing, please provide attribution to Kristina Tomicic</p>
   <br />
-  <ul>
+  {/* <ul>
     {Object.entries(links).map(([text, link]) => (
       <li>
         <a href={link}>{text}</a>
       </li>
     ))}
-  </ul>
+  </ul> */}
 </footer>
     )
   }
