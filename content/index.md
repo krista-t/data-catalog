@@ -1,6 +1,5 @@
 ---
-title: Welcome to Quartz
+title: "Redirecting to Data Catalog Guide..."
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+<meta http-equiv="refresh" content="0; url='./Data-Catalog/Data-Catalog-Guide'" />
