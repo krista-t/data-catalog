@@ -276,22 +276,23 @@ section:has(h3:contains("Backlink")) {
 
 /* Dark mode table styling */
 :root[saved-theme="dark"] .table-container th {
-  background-color: var(--secondary);
-  color: var(--secondary-text);
-}
-
-:root[saved-theme="dark"] .table-container tr:nth-child(even) {
-  background-color: var(--darkgray);
-}
-
-:root[saved-theme="dark"] .table-container tr:nth-child(odd) {
-  background-color: var(--dark);
-}
-
-:root[saved-theme="dark"] .table-container td,
-:root[saved-theme="dark"] .table-container th {
-  border-color: var(--darkgray);
-}
+    background-color: var(--secondary);
+    color: white !important; /* Force white text for better contrast */
+  }
+  
+  :root[saved-theme="dark"] .table-container tr:nth-child(even) {
+    background-color: #2a2a2a; /* Darker but visible background */
+  }
+  
+  :root[saved-theme="dark"] .table-container tr:nth-child(odd) {
+    background-color: #222222; /* Slightly darker background */
+  }
+  
+  :root[saved-theme="dark"] .table-container td,
+  :root[saved-theme="dark"] .table-container th {
+    border-color: #444444; /* More visible border */
+    color: white !important; /* Force white text for all cells */
+  }
 
 /* ------------------------------ */
 /* RESPONSIVE DESIGN              */
