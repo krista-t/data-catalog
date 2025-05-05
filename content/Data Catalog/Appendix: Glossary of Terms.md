@@ -1,6 +1,7 @@
 ---
 title: "Appendix: Glossary of Terms"
 sortOrder: 666
+lastmod: 2024-12-21         
 ---
 
 **Catalog**: A collection of metadata records about datasets, data services, or data products.
@@ -21,7 +22,7 @@ sortOrder: 666
 
 **Distribution**: A specific representation of a dataset in a particular format.
 
-**[DPROD (Data Product Ontology)](https://dprod.io/)**: A specification that extends DCAT metadata to describe data products.
+**[DPROD (Data Product Ontology)](https://www.omg.org/spec/DPROD/1.0/Beta1/About-DPROD)**: A specification that extends DCAT metadata to describe data products.
 
 **Input Port**: A service exposed by a data product to collect its source data, described by metadata in the catalog.
 

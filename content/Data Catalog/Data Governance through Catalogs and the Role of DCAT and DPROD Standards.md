@@ -1,3 +1,6 @@
+---
+lastmod: 2024-12-22     
+---
 # Data Governance through Catalogs and the Role of DCAT and DPROD Standards
 
 As organizations increasingly recognize data as a strategic asset, implementing effective data governance becomes critical. A data catalog serves as a foundational component in this governance framework, providing a centralized inventory of **metadata about data assets** that enables discovery, understanding, and proper use. This document explores how data governance can be effectively implemented through catalogs, with particular focus on how the DCAT and DPROD standards support these efforts.
