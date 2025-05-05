@@ -350,8 +350,11 @@ section:has(h3:contains("Backlink")) {
     }
   }
 
-
-
-  
-
+/* Hide the entire Graph View section if Appendix */
+body[data-slug*="appendix"] .graph,
+body[data-slug*="Appendix"] .graph,
+body[data-slug*="glossary"] .graph,
+body[data-slug*="Glossary"] .graph {
+  display: none !important;
+}
   

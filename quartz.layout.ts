@@ -38,7 +38,25 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      sortFn: (a, b) => {
+        // Special case for Appendix - always put it last
+        if (a.displayName.includes("Appendix")) return 1;
+        if (b.displayName.includes("Appendix")) return -1;
+        
+        // Default sorting (folders first, then alphabetical)
+        if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+          return a.displayName.localeCompare(b.displayName, undefined, { 
+            numeric: true, 
+            sensitivity: "base" 
+          });
+        }
+        
+        // Keep folders before files
+        if (a.isFolder && !b.isFolder) return -1;
+        return 1;
+      }
+    }),
   ],
   right: [
     Component.Graph({
@@ -70,9 +88,10 @@ export const defaultContentPageLayout: PageLayout = {
         removeTags: [],
         showTags: true,
         focusOnHover: false,
-        enableRadial: true,
-      }
+        enableRadial: true,       
+      }, 
     }),
+    
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],

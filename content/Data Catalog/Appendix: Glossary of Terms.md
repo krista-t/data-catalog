@@ -1,4 +1,7 @@
-# Appendix: Glossary of Terms
+---
+title: "Appendix: Glossary of Terms"
+sortOrder: 666
+---
 
 **Catalog**: A collection of metadata records about datasets, data services, or data products.
 
