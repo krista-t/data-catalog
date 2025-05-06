@@ -1,5 +1,6 @@
 ---
-lastmod: 2024-12-21        
+lastmod: 2024-12-21 
+order: 1       
 ---
 This is a comprehensive documentation about data catalogs, covering all aspects from fundamental understanding to strategic selection and practical implementation. It includes important standards like [DCAT (Data Catalog Vocabulary)](https://www.w3.org/TR/vocab-dcat-3/)and [DPROD (Data Product)](https://www.omg.org/spec/DPROD/1.0/Beta1/About-DPROD). 
 

@@ -92,7 +92,28 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({
+        // Add this sort function to match your Explorer component sorting
+        sort: (a, b) => {
+          // Define specific order for files
+          const fileOrder = {
+            "Data Catalog Guide": 1,
+            "Data Governance through Catalogs and the Role of DCAT and DPROD Standards": 2,
+            "Strategic Roadmap for Data Catalog Implementation": 3,
+            "Appendix: Glossary of Terms": 666
+          };
+          
+          // Get title from frontmatter
+          const titleA = a.frontmatter?.title || "";
+          const titleB = b.frontmatter?.title || "";
+          
+          // Get order or default to high number
+          const orderA = fileOrder[titleA] || 100;
+          const orderB = fileOrder[titleB] || 100;
+          
+          return orderA - orderB;
+        }
+      }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,

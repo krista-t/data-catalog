@@ -305,6 +305,7 @@ section:has(h3:contains("Backlink")) {
 /* RESPONSIVE DESIGN              */
 /* ------------------------------ */
 @media (max-width: 1200px) {
+    
     .page {
       padding-left: 1.5rem !important;
       padding-right: 1.5rem !important;
@@ -345,6 +346,162 @@ section:has(h3:contains("Backlink")) {
         padding-right: 1rem !important;
       }
     
+    .table-container table,
+    .table-container td,
+    .table-container th {
+      font-size: 0.75rem;
+    }
+    
+    .table-container td,
+    .table-container th {
+      padding: 0.4rem 0.5rem;
+      min-width: 100px;
+    }
+  }
+/* ------------------------------ */
+/* RESPONSIVE DESIGN              */
+/* ------------------------------ */
+
+/* Desktop (1201px and above) */
+@media (min-width: 1201px) {
+    .page {
+      width: 100% !important;
+      max-width: 1600px !important;
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+    }
+    
+    .page > #quartz-body {
+      column-gap: 2rem !important;
+      width: 100% !important;
+    }
+    
+    .page > #quartz-body .sidebar.left {
+      grid-column-start: 1;
+      width: 100% !important;
+      max-width: 320px !important;
+    }
+    
+    .page > #quartz-body .center {
+      grid-column-start: 2;
+      padding: 0 !important;
+      min-width: 0;
+      width: 100% !important;
+    }
+    
+    .page > #quartz-body .sidebar.right {
+      grid-column-start: 3;
+      width: 100% !important;
+      max-width: 320px !important;
+    }
+  }
+  
+  /* Tablet (801px - 1200px) */
+  @media (min-width: 801px) and (max-width: 1200px) {
+    .page {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      max-width: 1200px !important;
+    }
+    
+    .page > #quartz-body {
+      column-gap: 1.5rem !important;
+    }
+    
+    .page > #quartz-body .sidebar.left,
+    .page > #quartz-body .sidebar.right {
+      max-width: 250px !important;
+    }
+    
+    .graph {
+      height: 300px !important;
+    }
+    
+    .toc {
+      padding: 12px !important;
+    }
+    
+    footer {
+      margin-top: 2rem !important;
+    }
+  }
+  
+  /* Mobile (800px and below) */
+  @media (max-width: 800px) {
+    /* Base page structure */
+    .page {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 100vh !important;
+    }
+    
+    /* Reset grid layout to flex for mobile */
+    #quartz-body {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+    }
+    
+    /* Element ordering */
+    .sidebar.left {
+      order: 1 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    
+    .center {
+      order: 2 !important;
+      width: 100% !important;
+      flex: 1 !important;
+    }
+    
+    /* Hide Graph and TOC on mobile */
+    .sidebar.right,
+    .graph,
+    .toc {
+      display: none !important;
+    }
+    
+    /* Footer placement */
+    footer {
+      order: 3 !important;
+      margin-top: 2rem !important;
+      width: 100% !important;
+      text-align: center !important;
+      padding-bottom: 1rem !important;
+    }
+    
+    /* Explorer/hamburger menu styling */
+    .sidebar-container {
+      width: 100% !important;
+      margin-bottom: 1.5rem !important;
+    }
+    
+    /* Breadcrumbs */
+    .breadcrumb-container {
+      padding: 0.5rem 0 !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    /* Typography adjustments for mobile */
+    h1 {
+      font-size: 1.8rem !important;
+    }
+    
+    h2 {
+      font-size: 1.5rem !important;
+    }
+    
+    h3 {
+      font-size: 1.3rem !important;
+    }
+    
+    /* Table adjustments for mobile */
     .table-container table,
     .table-container td,
     .table-container th {

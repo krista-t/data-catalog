@@ -1,5 +1,6 @@
 ---
-lastmod: 2024-12-22         
+lastmod: 2024-12-22 
+order: 3        
 ---
 This document should serve as a guideline as the actual strategy to evaluate, select, and adopt data catalog withing the organization should be tailored to align with the specific needs, priorities, and technical landscape of the organization.  
 

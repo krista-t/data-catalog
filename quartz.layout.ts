@@ -42,21 +42,28 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
       sortFn: (a, b) => {
-        // Special case for Appendix - always put it last
-        if (a.displayName.includes("Appendix")) return 1;
-        if (b.displayName.includes("Appendix")) return -1;
+        // Define specific order for files
+        const fileOrder = {
+          "Data Catalog Guide": 1,
+          "Data Governance through Catalogs": 2,
+          "Strategic Roadmap for Data Catalog Implementation": 3,
+          "Appendix: Glossary of Terms": 666  // Using your numbering scheme
+        };
         
-        // Default sorting (folders first, then alphabetical)
-        if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-          return a.displayName.localeCompare(b.displayName, undefined, { 
-            numeric: true, 
-            sensitivity: "base" 
-          });
+        // Order values for items
+        const orderA = a.isFolder ? a.order : (fileOrder[a.displayName] || 100);
+        const orderB = b.isFolder ? b.order : (fileOrder[b.displayName] || 100);
+        
+        // Sort by order
+        if (orderA !== orderB) {
+          return orderA - orderB;
         }
         
-        // Keep folders before files
-        if (a.isFolder && !b.isFolder) return -1;
-        return 1;
+        // If same order, sort alphabetically
+        return a.displayName.localeCompare(b.displayName, undefined, {
+          numeric: true,
+          sensitivity: "base"
+        });
       }
     }),
   ],
