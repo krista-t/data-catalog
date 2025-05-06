@@ -119,6 +119,9 @@ nav.breadcrumb-container {
 .mymail {
   color: var(--custom-navigation-color) !important;
 }
+.page-title a {
+    cursor: none !important;
+}
 //make it of same color as inactive toc links
 a.external  {
     color: var(--custom-navigation-color) !important;
