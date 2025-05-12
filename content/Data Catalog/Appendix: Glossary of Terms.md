@@ -8,7 +8,7 @@ lastmod: 2024-12-23
 
 **Data**: The actual information content stored in systems and used for business operations and decision-making.
 
-**[DCAT (Data Catalog Vocabulary)](https://www.w3.org/TR/vocab-dcat-2/)**: A W3C standard for metadata used to describe datasets and data services in catalogs.
+**[DCAT (Data Catalog Vocabulary)](https://www.w3.org/TR/vocab-dcat-3/)**: A W3C standard for metadata used to describe datasets and data services in catalogs.
 
 **Dataset**: A collection of actual data, published or curated by a single agent.
 
