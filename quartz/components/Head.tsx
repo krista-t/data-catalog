@@ -56,10 +56,6 @@ export default (() => {
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta 
-  http-equiv="Content-Security-Policy" 
-  content="img-src data: https://krista-t.github.io;"
-/>
 
 <meta name="og:site_name" content={cfg.pageTitle}></meta>
 
@@ -72,7 +68,7 @@ export default (() => {
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
 
-        {!usesCustomOgImage && (
+{/*         {!usesCustomOgImage && (
           <>
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
@@ -82,7 +78,7 @@ export default (() => {
               content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
             />
           </>
-        )}
+        )} */}
 
         {cfg.baseUrl && (
           <>
