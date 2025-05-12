@@ -38,10 +38,6 @@ export default (() => {
 
     return (
       <head>
-        <meta 
-          httpEquiv="Content-Security-Policy" 
-          content="img-src 'self' data: https://krista-t.github.io https://*.github.io;"
-        />
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
@@ -66,7 +62,7 @@ export default (() => {
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
 
-{/*         {!usesCustomOgImage && (
+        {!usesCustomOgImage && (
           <>
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
@@ -76,7 +72,7 @@ export default (() => {
               content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
             />
           </>
-        )} */}
+        )}
 
         {cfg.baseUrl && (
           <>
@@ -86,9 +82,7 @@ export default (() => {
           </>
         )}
 
-        {/* Using a blank data URI is more reliable than about:blank */}
-        <link rel="icon" href="data:,"/>
-        
+        <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
