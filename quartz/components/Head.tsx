@@ -52,6 +52,12 @@ export default (() => {
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta 
+  http-equiv="Content-Security-Policy" 
+  content="img-src data: https://krista-t.github.io;"
+/>
+
+<meta name="og:site_name" content={cfg.pageTitle}></meta>
 
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
