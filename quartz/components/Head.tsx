@@ -88,7 +88,7 @@ export default (() => {
           </>
         )}
 
-<link rel="icon" href="data:,">
+<link rel="icon" href="about:blank">
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
