@@ -38,6 +38,10 @@ export default (() => {
 
     return (
       <head>
+        <meta 
+    httpEquiv="Content-Security-Policy" 
+    content="img-src 'self' data: https://krista-t.github.io;"
+  />
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
@@ -53,6 +57,8 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<meta name="og:site_name" content={cfg.pageTitle}></meta>
+
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
@@ -62,7 +68,7 @@ export default (() => {
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
 
-        {!usesCustomOgImage && (
+{/*         {!usesCustomOgImage && (
           <>
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
@@ -72,7 +78,7 @@ export default (() => {
               content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
             />
           </>
-        )}
+        )} */}
 
         {cfg.baseUrl && (
           <>
@@ -82,7 +88,7 @@ export default (() => {
           </>
         )}
 
-        <link rel="icon" href={iconPath} />
+<link rel="icon" href="about:blank">
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
