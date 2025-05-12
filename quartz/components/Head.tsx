@@ -39,9 +39,9 @@ export default (() => {
     return (
       <head>
         <meta 
-    httpEquiv="Content-Security-Policy" 
-    content="img-src 'self' data: https://krista-t.github.io;"
-  />
+          httpEquiv="Content-Security-Policy" 
+          content="img-src 'self' data: https://krista-t.github.io https://*.github.io;"
+        />
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
@@ -56,8 +56,6 @@ export default (() => {
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<meta name="og:site_name" content={cfg.pageTitle}></meta>
 
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
@@ -88,7 +86,9 @@ export default (() => {
           </>
         )}
 
-<link rel="icon" href="about:blank">
+        {/* Using a blank data URI is more reliable than about:blank */}
+        <link rel="icon" href="data:,"/>
+        
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
 
