@@ -121,7 +121,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
-      Plugin.Favicon(),
+      Plugin.Favicon({icon: "static/icon.png"}),
       Plugin.NotFoundPage(),
       Plugin.CustomOgImages(),
     ],
