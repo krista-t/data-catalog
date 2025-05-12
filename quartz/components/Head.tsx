@@ -38,6 +38,9 @@ export default (() => {
 
     return (
       <head>
+        <meta 
+          httpEquiv="Content-Security-Policy" 
+          content="img-src data: https://krista-t.github.io https://*.github.io;"/>
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
