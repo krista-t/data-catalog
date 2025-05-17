@@ -1,7 +1,6 @@
 ---
 lastmod: 2024-12-22  
 order: 2   
-permalink: "/data-catalog/data-governance-through-catalogs/"
 ---
 # Data Governance through Catalogs and the Role of DCAT and DPROD Standards
 
