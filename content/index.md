@@ -4,9 +4,6 @@ title: "Data Catalog"
 ---
 
 
-
-# Data Catalog
-
 Welcome to the Data Catalog. Select a guide below:
 
 - [Data Catalog Guide](./Data%20Catalog/Data%20Catalog%20Guide.md)

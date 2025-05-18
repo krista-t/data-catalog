@@ -56,38 +56,38 @@ h3 {
 /* LAYOUT                         */
 /* ------------------------------ */
 .page {
-    width: 100% !important;
-    max-width: 1600px !important; /* Slightly reduced max-width */
-    padding-left: 2rem !important;
-    padding-right: 2rem !important; /* Explicitly set both left and right padding */
-    margin-left: auto !important;
-    margin-right: auto !important; /* Explicitly set both left and right margin to auto */
-    box-sizing: border-box !important;
-  }
-  
-  .page > #quartz-body {
-    column-gap: 2rem !important;
-    width: 100% !important; /* Ensure the body takes full width */
-  }
-  
-  .page > #quartz-body .sidebar.left {
-    grid-column-start: 1;
-    width: 100% !important;
-    max-width: 320px !important;
-  }
-  
-  .page > #quartz-body .center {
-    grid-column-start: 2;
-    padding: 0 !important; /* Remove padding from center content */
-    min-width: 0;
-    width: 100% !important;
-  }
-  
-  .page > #quartz-body .sidebar.right {
-    grid-column-start: 3;
-    width: 100% !important;
-    max-width: 320px !important;
-  }
+  width: 100% !important;
+  max-width: 1600px !important; /* Slightly reduced max-width */
+  padding-left: 2rem !important;
+  padding-right: 2rem !important; /* Explicitly set both left and right padding */
+  margin-left: auto !important;
+  margin-right: auto !important; /* Explicitly set both left and right margin to auto */
+  box-sizing: border-box !important;
+}
+
+.page > #quartz-body {
+  column-gap: 2rem !important;
+  width: 100% !important; /* Ensure the body takes full width */
+}
+
+.page > #quartz-body .sidebar.left {
+  grid-column-start: 1;
+  width: 100% !important;
+  max-width: 280px !important; /* Adjusted width */
+}
+
+.page > #quartz-body .center {
+  grid-column-start: 2;
+  padding: 0 !important; /* Remove padding from center content */
+  min-width: 0;
+  width: 100% !important;
+}
+
+.page > #quartz-body .sidebar.right {
+  grid-column-start: 3;
+  width: 100% !important;
+  max-width: 320px !important;
+}
 
 .right {
   margin-top: 8px;
@@ -120,25 +120,24 @@ nav.breadcrumb-container {
   color: var(--custom-navigation-color) !important;
 }
 .page-title a {
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 //make it of same color as inactive toc links
 a.external  {
-    color: var(--custom-navigation-color) !important;
-
+  color: var(--custom-navigation-color) !important;
 }
 /* Style explorer content as a numbered list with matching colors */
 ul.content {
-    list-style-type: decimal !important; /* Use decimal numbering */
-    padding-left: 2rem !important; /* Add padding for the numbers */
-  }
-  
-  /* Style the list items themselves to have the navigation color */
-  ul.content > li {
-    display: list-item !important;
-    list-style-position: outside !important;
-    color: var(--custom-navigation-color) !important; /* This will color the numbers */
-  }
+  list-style-type: decimal !important; /* Use decimal numbering */
+  padding-left: 2rem !important; /* Add padding for the numbers */
+}
+
+/* Style the list items themselves to have the navigation color */
+ul.content > li {
+  display: list-item !important;
+  list-style-position: outside !important;
+  color: var(--custom-navigation-color) !important; /* This will color the numbers */
+}
 
 /* Opacity for TOC links */
 ul.toc-content > li > a {
@@ -208,6 +207,15 @@ div.search:focus-within {
   border-radius: 8px;
   padding: 15px !important;
   margin-bottom: 25px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.toc-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
 }
 
 .toc-title button {
@@ -219,8 +227,99 @@ div.search:focus-within {
   margin: 0 0 0 1.3rem !important;
 }
 
+.toc-content {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
 .toc-content li {
   color: var(--custom-navigation-color) !important;
+}
+/* Fix for the empty markers in overflow-end class */
+li.overflow-end::marker,
+.overflow-end::marker {
+  content: " " !important;
+  color: var(--custom-navigation-color, #0a81f0) !important;
+  display: inline-block !important;
+}
+/* 
+ * TOC BACKGROUND FIX 
+ * 
+ * This CSS ensures the Table of Contents maintains
+ * its grey background color even when scrolling
+ */
+
+/* Target TOC container with multiple selectors for better coverage */
+.toc,
+.toc-container,
+div:has(.toc),
+div:has(.toc-content),
+.table-of-contents {
+  background-color: rgba(245, 245, 245, 0.9) !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  margin-bottom: 25px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Dark mode variant */
+:root[saved-theme="dark"] .toc,
+:root[saved-theme="dark"] .toc-container,
+:root[saved-theme="dark"] div:has(.toc),
+:root[saved-theme="dark"] div:has(.toc-content),
+:root[saved-theme="dark"] .table-of-contents {
+  background-color: rgba(50, 50, 50, 0.9) !important;
+}
+
+/* TOC title styling */
+.table-of-contents h1,
+.toc-title {
+  font-weight: bold !important;
+  font-size: 1.8rem !important;
+  color: #333 !important;
+  margin-bottom: 15px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+:root[saved-theme="dark"] .table-of-contents h1,
+:root[saved-theme="dark"] .toc-title {
+  color: #eee !important;
+}
+
+/* TOC content styling */
+.toc-content {
+  background-color: rgba(245, 245, 245, 0.9) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+:root[saved-theme="dark"] .toc-content {
+  background-color: rgba(50, 50, 50, 0.9) !important;
+}
+
+/* Fix for background in sticky sidebar */
+@media (min-width: 1200px) {
+  .page > #quartz-body .sidebar.right .toc,
+  .page > #quartz-body .sidebar.right .toc-container,
+  .page > #quartz-body .sidebar.right div:has(.toc),
+  .page > #quartz-body .sidebar.right div:has(.toc-content),
+  .page > #quartz-body .sidebar.right .table-of-contents {
+    background-color: rgba(245, 245, 245, 0.9) !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  :root[saved-theme="dark"] .page > #quartz-body .sidebar.right .toc,
+  :root[saved-theme="dark"] .page > #quartz-body .sidebar.right .toc-container,
+  :root[saved-theme="dark"] .page > #quartz-body .sidebar.right div:has(.toc),
+  :root[saved-theme="dark"] .page > #quartz-body .sidebar.right div:has(.toc-content),
+  :root[saved-theme="dark"] .page > #quartz-body .sidebar.right .table-of-contents {
+    background-color: rgba(50, 50, 50, 0.9) !important;
+  }
 }
 
 /* ------------------------------ */
@@ -243,277 +342,469 @@ section:has(h3:contains("Backlink")) {
 /* ------------------------------ */
 /* Table styling - universal basics */
 .table-container {
-    width: 100%;
-    margin-bottom: 1.5rem;
-    overflow-x: auto;
-  }
-  
-  .table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-  
-  .table-container th,
-  .table-container td {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.75rem;
-    word-wrap: break-word;
-    min-width: 120px;
-  }
-  
-  /* Light mode specific colors */
-  :root:not([saved-theme="dark"]) .table-container th {
-    background-color: #5c7999 !important;
-    color: white !important;
-    border: 1px solid #4e5a68 !important;
-  }
-  
-  :root:not([saved-theme="dark"]) .table-container td {
-    border: 1px solid #cccccc !important;
-    color: #333333 !important;
-  }
-  
-  :root:not([saved-theme="dark"]) .table-container tr:nth-child(odd) {
-    background-color: #f5f5f5 !important;
-  }
-  
-  :root:not([saved-theme="dark"]) .table-container tr:nth-child(even) {
-    background-color: #e9e9e9 !important;
-  }
-  
-  /* Dark mode specific colors */
-  :root[saved-theme="dark"] .table-container th {
-    background-color: #3a4a5a !important;
-    color: white !important;
-    border: 1px solid #2c3e50 !important;
-  }
-  
-  :root[saved-theme="dark"] .table-container td {
-    border: 1px solid #444444 !important;
-    color: #ffffff !important;
-  }
-  
-  :root[saved-theme="dark"] .table-container tr:nth-child(odd) {
-    background-color: #222222 !important;
-  }
-  
-  :root[saved-theme="dark"] .table-container tr:nth-child(even) {
-    background-color: #2a2a2a !important;
-  }
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container th,
+.table-container td {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  word-wrap: break-word;
+  min-width: 120px;
+}
+
+/* Light mode specific colors */
+:root:not([saved-theme="dark"]) .table-container th {
+  background-color: #5c7999 !important;
+  color: white !important;
+  border: 1px solid #4e5a68 !important;
+}
+
+:root:not([saved-theme="dark"]) .table-container td {
+  border: 1px solid #cccccc !important;
+  color: #333333 !important;
+}
+
+:root:not([saved-theme="dark"]) .table-container tr:nth-child(odd) {
+  background-color: #f5f5f5 !important;
+}
+
+:root:not([saved-theme="dark"]) .table-container tr:nth-child(even) {
+  background-color: #e9e9e9 !important;
+}
+
+/* Dark mode specific colors */
+:root[saved-theme="dark"] .table-container th {
+  background-color: #3a4a5a !important;
+  color: white !important;
+  border: 1px solid #2c3e50 !important;
+}
+
+:root[saved-theme="dark"] .table-container td {
+  border: 1px solid #444444 !important;
+  color: #ffffff !important;
+}
+
+:root[saved-theme="dark"] .table-container tr:nth-child(odd) {
+  background-color: #222222 !important;
+}
+
+:root[saved-theme="dark"] .table-container tr:nth-child(even) {
+  background-color: #2a2a2a !important;
+}
+
 /* ------------------------------ */
-/* RESPONSIVE DESIGN              */
+/* GRAPH VIEW                     */
 /* ------------------------------ */
-@media (max-width: 1200px) {
-    
-    .page {
-      padding-left: 1.5rem !important;
-      padding-right: 1.5rem !important;
-    }
-    
-    .page > #quartz-body {
-      display: flex !important;
-      flex-direction: column !important;
-    }
-    
-    .page > #quartz-body .sidebar.left,
-    .page > #quartz-body .sidebar.right {
-      width: 100% !important;
-      max-width: 100% !important;
-      order: 2;
-      padding: 0 !important; /* Remove padding from sidebars on small screens */
-    }
-    
-    .page > #quartz-body .center {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0;
-      order: 1;
-      padding: 0 !important; /* Ensure no padding on the content */
-    }
-  }
-  
-//   @media (max-width: 800px) {
-//     .page {
-//       padding-left: 1rem !important;
-//       padding-right: 1rem !important;
-//     }
-//   }
-  
-  @media (max-width: 800px) {
-    .page {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-      }
-    
-    .table-container table,
-    .table-container td,
-    .table-container th {
-      font-size: 0.75rem;
-    }
-    
-    .table-container td,
-    .table-container th {
-      padding: 0.4rem 0.5rem;
-      min-width: 100px;
-    }
-  }
+.graph {
+  display: block !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  width: 100% !important;
+  min-height: 260px !important; /* Reduced from 300px */
+  max-height: 35vh !important; /* Reduced from 40vh */
+}
+
+.graph-view {
+  width: 100% !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.graph h3 {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+  padding-top: 0 !important;
+}
+
 /* ------------------------------ */
 /* RESPONSIVE DESIGN              */
 /* ------------------------------ */
 
-/* Desktop (1201px and above) */
-@media (min-width: 1201px) {
-    .page {
-      width: 100% !important;
-      max-width: 1600px !important;
-      padding-left: 2rem !important;
-      padding-right: 2rem !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      box-sizing: border-box !important;
-    }
-    
-    .page > #quartz-body {
-      column-gap: 2rem !important;
-      width: 100% !important;
-    }
-    
-    .page > #quartz-body .sidebar.left {
-      grid-column-start: 1;
-      width: 100% !important;
-      max-width: 320px !important;
-    }
-    
-    .page > #quartz-body .center {
-      grid-column-start: 2;
-      padding: 0 !important;
-      min-width: 0;
-      width: 100% !important;
-    }
-    
-    .page > #quartz-body .sidebar.right {
-      grid-column-start: 3;
-      width: 100% !important;
-      max-width: 320px !important;
-    }
+/* Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .page {
+    width: 100% !important;
+    max-width: 1600px !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
   }
   
-  /* Tablet (801px - 1200px) */
-  @media (min-width: 801px) and (max-width: 1200px) {
-    .page {
-      padding-left: 1.5rem !important;
-      padding-right: 1.5rem !important;
-      max-width: 1200px !important;
-    }
-    
-    .page > #quartz-body {
-      column-gap: 1.5rem !important;
-    }
-    
-    .page > #quartz-body .sidebar.left,
-    .page > #quartz-body .sidebar.right {
-      max-width: 250px !important;
-    }
-    
-    .graph {
-      height: 300px !important;
-    }
-    
-    .toc {
-      padding: 12px !important;
-    }
-    
-    footer {
-      margin-top: 2rem !important;
-    }
+  .page > #quartz-body {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    column-gap: 2rem !important;
+    width: 100% !important;
   }
   
-  /* Mobile (800px and below) */
-  @media (max-width: 800px) {
-    /* Base page structure */
-    .page {
-      padding-left: 1rem !important;
-      padding-right: 1rem !important;
-      display: flex !important;
-      flex-direction: column !important;
-      min-height: 100vh !important;
-    }
-    
-    /* Reset grid layout to flex for mobile */
-    #quartz-body {
-      display: flex !important;
-      flex-direction: column !important;
-      width: 100% !important;
-    }
-    
-    /* Element ordering */
-    .sidebar.left {
-      order: 1 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-    
-    .center {
-      order: 2 !important;
-      width: 100% !important;
-      flex: 1 !important;
-    }
-    
-    /* Hide Graph and TOC on mobile */
-    .sidebar.right,
-    .graph,
-    .toc {
-      display: none !important;
-    }
-    
-    /* Footer placement */
-    footer {
-      order: 3 !important;
-      margin-top: 2rem !important;
-      width: 100% !important;
-      text-align: center !important;
-      padding-bottom: 1rem !important;
-    }
-    
-    /* Explorer/hamburger menu styling */
-    .sidebar-container {
-      width: 100% !important;
-      margin-bottom: 1.5rem !important;
-    }
-    
-    /* Breadcrumbs */
-    .breadcrumb-container {
-      padding: 0.5rem 0 !important;
-      margin-bottom: 1rem !important;
-    }
-    
-    /* Typography adjustments for mobile */
-    h1 {
-      font-size: 1.8rem !important;
-    }
-    
-    h2 {
-      font-size: 1.5rem !important;
-    }
-    
-    h3 {
-      font-size: 1.3rem !important;
-    }
-    
-    /* Table adjustments for mobile */
-    .table-container table,
-    .table-container td,
-    .table-container th {
-      font-size: 0.75rem;
-    }
-    
-    .table-container td,
-    .table-container th {
-      padding: 0.4rem 0.5rem;
-      min-width: 100px;
-    }
+  .page > #quartz-body .sidebar.left {
+    grid-column-start: 1;
+    width: 100% !important;
+    max-width: 320px !important;
   }
+  
+  .page > #quartz-body .center {
+    grid-column-start: 2;
+    padding: 0 !important;
+    min-width: 0;
+    width: 100% !important;
+  }
+  
+  
+/* 
+ * RIGHT SIDEBAR FIX 
+ * 
+ * This CSS makes the right sidebar fixed and scrollable
+ * while keeping the graph view at the top.
+ */
+
+/* Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  /* Fix for right sidebar */
+  .page > #quartz-body .sidebar.right {
+    grid-column: 3 !important;
+    grid-area: initial !important;
+    width: 100% !important;
+    max-width: 260px !important;
+    position: sticky !important; /* Make it stick */
+    top: 20px !important; /* Small offset from top */
+    height: calc(100vh - 40px) !important; /* Almost full height with margins */
+    overflow-y: auto !important; /* Enable scrolling */
+    
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: thin !important;
+    
+    /* Ensure content is in columns */
+    display: flex !important;
+    flex-direction: column !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Hide scrollbar for Chrome/Safari */
+  .page > #quartz-body .sidebar.right::-webkit-scrollbar {
+    width: 4px !important;
+  }
+  
+  .page > #quartz-body .sidebar.right::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.3) !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Target the graph specifically to keep at top */
+  .page > #quartz-body .sidebar.right > div:has(.graph),
+  .page > #quartz-body .sidebar.right > div:has([class*="graph"]),
+  .page > #quartz-body .sidebar.right > div:first-child {
+    order: -1 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Ensure TOC comes after graph */
+  .page > #quartz-body .sidebar.right > div:has(.toc),
+  .page > #quartz-body .sidebar.right > div.toc-container {
+    order: 1 !important;
+  }
+}
+  
+  /* Target the graph specifically */
+.page > #quartz-body .sidebar.right > div:has(.graph),
+.page > #quartz-body .sidebar.right > div:has([class*="graph"]),
+.page > #quartz-body .sidebar.right > div:first-child {
+  grid-row: 1 !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+  
+  /* Mobile menu fix - ensure 100% width */
+@media (max-width: 800px) {
+  /* Explorer container and content */
+  .explorer-container,
+  .explorer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Menu header */
+  .explorer h1,
+  .explorer-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Menu items container */
+  .explorer-content,
+  .tree-item,
+  .folder-outer,
+  .folder {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Explorer items */
+  .explorer-items {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  /* Link items */
+  .tree-item-inner, 
+  .folder-inner,
+  .tree-item-self,
+  .folder-title,
+  .item-title,
+  .folder a,
+  .item a {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    padding: 0.5rem 0 !important;
+  }
+  
+  /* Opened explorer content */
+  .open-folder {
+    width: 100% !important;
+    padding-left: 1rem !important;
+  }
+  
+  /* For Chevron or expander arrows */
+  .folder-icon {
+    margin-right: 0.5rem !important;
+  }
+  
+  /* Ensure no overflow or hidden content */
+  .folder-container {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+  
+  /* Make text in menu more readable */
+  .explorer a {
+    font-size: 1rem !important;
+    line-height: 1.5 !important; 
+  }
+  
+  /* Fix the sidebar toggle in open state */
+  .sidebar.left.open {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+  }
+  
+  /* Fix content overflow */
+  .center {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    width: 100% !important;
+  }
+}
+}
+  
+/* Tablet (801px - 1199px) */
+@media (min-width: 801px) and (max-width: 1199px) {
+  .page {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    max-width: 1200px !important;
+  }
+  
+  .page > #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .page > #quartz-body .sidebar.left,
+  .page > #quartz-body .sidebar.right {
+    width: 100% !important;
+    max-width: 100% !important;
+    order: 2;
+    padding: 0 !important;
+  }
+  
+  .page > #quartz-body .center {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    order: 1;
+    padding: 0 !important;
+  }
+  
+  .graph {
+    height: 300px !important;
+    display: block !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .toc {
+    padding: 12px !important;
+  }
+  
+  footer {
+    margin-top: 2rem !important;
+  }
+}
+  
+/* Mobile (800px and below) */
+@media (max-width: 800px) {
+  /* Base page structure */
+  .page {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Reset grid layout to flex for mobile */
+  #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Element ordering */
+  .sidebar.left {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+      .page>#quartz-body .sidebar.left:has(.explorer) {
+        position: relative !important;
+        top: auto !important;
+        display: grid !important;
+        grid-template-rows: auto 1fr !important;
+     
+        width: 100% !important;
+        max-width: 100% !important;
+  }
+
+  .center {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 !important;
+  }
+  
+  /* Hide Graph and TOC on mobile */
+  .sidebar.right,
+  .graph,
+  .toc {
+    display: none !important;
+  }
+  
+  /* Footer placement */
+  footer {
+    order: 3 !important;
+    margin-top: 2rem !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  /* Explorer/hamburger menu styling */
+  .sidebar-container {
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumb-container {
+    padding: 0.5rem 0 !important;
+    margin-bottom: 1rem !important;
+    width: 100% !important;
+  }
+  
+  /* Typography adjustments for mobile */
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  /* Table adjustments for mobile */
+  .table-container table,
+  .table-container td,
+  .table-container th {
+    font-size: 0.75rem;
+  }
+  
+  .table-container td,
+  .table-container th {
+    padding: 0.4rem 0.5rem;
+    min-width: 100px;
+  }
+  
+  /* Header layout improvements */
+  header,
+  .header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Title and search container */
+  .page-title {
+    display: flex !important; 
+    flex-direction: row !important;
+    align-items: center !important;
+    width: auto !important;
+    flex: 1 !important;
+  }
+  
+  .page-title a {
+    font-size: inherit !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  /* Search improvements */
+  .search {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  
+  .search input {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
 
 /* Hide the entire Graph View section if Appendix */
 body[data-slug*="appendix"] .graph,
@@ -522,4 +813,11 @@ body[data-slug*="glossary"] .graph,
 body[data-slug*="Glossary"] .graph {
   display: none !important;
 }
-  
+
+/* JavaScript fallback to ensure Graph View is at the top */
+@media (min-width: 1200px) {
+  /* This ensures our JS will find the right sidebar in the DOM */
+  .sidebar.right {
+    position: relative !important;
+  }
+}
